@@ -4,7 +4,7 @@ $nama = $nim = $gender = "";
 if (isset($_POST["submit"])) {
   empty($_POST["nama"]) ? $namaError = "nama tidak boleh kosong" : $nama = $_POST["nama"];
   empty($_POST["nim"]) ? $nimError = "nim tidak boleh kosong" : $nim = $_POST["nim"];
-  empty($_POST["gender"]) ? $genderError = "gender tidak boleh kosong" : $gender = $_POST["gender"];
+  empty($_POST["gender"]) ? $genderError = "jenis kelamin tidak boleh kosong" : $gender = $_POST["gender"];
 }
 ?>
 <!DOCTYPE html>

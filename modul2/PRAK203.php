@@ -10,7 +10,7 @@
 <body>
   <form method="post">
     <label for="nilai">Nilai : </label>
-    <input type="number" name="suhu"> <br>
+    <input type="number" name="suhu" value="<?= isset($_POST['suhu']) ? htmlspecialchars($_POST['suhu']) : '' ?>"> <br>
     <span>Dari : </span><br>
     <input type="radio" name="suhuawal" value="celcius">
     <label for="celcius">Celcius</label><br>
@@ -42,66 +42,68 @@ if (isset($_POST["submit"])) {
     $konversisuhu = $_POST['konversisuhu'];
 
     switch ($suhuawal) {
-      case "Celcius":
+      case "celcius":
         switch ($konversisuhu) {
-          case "Celcius":
+          case "celcius":
             echo "<h2>Hasil Konversi : $suhu &deg;C</h2>";
             break;
-          case "Fahrenheit":
+          case "fahrenheit":
             echo "<h2>Hasil Konversi : " . ($suhu * 1.8 + 32) . " &deg;F</h2>";
             break;
-          case "Reamur":
+          case "rheamur":
             echo "<h2>Hasil Konversi : " . ($suhu * 0.8) . " &deg;R</h2>";
             break;
-          case "Kelvin":
+          case "kelvin":
             echo "<h2>Hasil Konversi : " . ($suhu + 273.15) . " &deg;K</h2>";
             break;
         }
         break;
-      case "Fahrenheit":
+      case "fahrenheit":
         switch ($konversisuhu) {
-          case "Celcius":
+          case "celcius":
             echo "<h2>Hasil Konversi : " . ($suhu - 32) / 1.8 . " &deg;C</h2>";
             break;
-          case "Fahrenheit":
+          case "fahrenheit":
             echo "<h2>Hasil Konversi : $suhu &deg;F</h2>";
             break;
-          case "Reamur":
+          case "rheamur":
             echo "<h2>Hasil Konversi : " . ($suhu - 32) / 2.25 . " &deg;R</h2>";
             break;
-          case "Kelvin":
+          case "kelvin":
             echo "<h2>Hasil Konversi : " . ($suhu + 459.67) / 1.8 . " &deg;K</h2>";
             break;
         }
         break;
-      case "Reamur":
+      case "rheamur":
         switch ($konversisuhu) {
-          case "Celcius":
+          case "celcius":
             echo "<h2>Hasil Konversi : " . ($suhu * 1.25) . " &deg;C</h2>";
             break;
-          case "Fahrenheit":
+          case "fahrenheit":
             echo "<h2>Hasil Konversi : " . ($suhu * 2.25 + 32) . " &deg;F</h2>";
             break;
-          case "Reamur":
+          case "rheamur":
             echo "<h2>Hasil Konversi : $suhu &deg;R</h2>";
             break;
-          case "Kelvin":
+          case "kelvin":
             echo "<h2>Hasil Konversi : " . ($suhu + 273.15) / 0.8 . " &deg;K</h2>";
             break;
         }
         break;
-      case "Kelvin":
+      case "kelvin":
         switch ($konversisuhu) {
-          case "Celcius":
+          case "celcius":
             echo "<h2>Hasil Konversi : " . ($suhu - 273.15) . " &deg;C</h2>";
             break;
-          case "Fahrenheit":
+          case "fahrenheit":
             echo "<h2>Hasil Konversi : " . ($suhu * 1.8 - 459.67) . " &deg;F</h2>";
             break;
-          case "Reamur":
+          case "rheamur":
             echo "<h2>Hasil Konversi : " . ($suhu - 273.15) * 0.8 . " &deg;R</h2>";
-          case "Kelvin":
+            break;
+          case "kelvin":
             echo "<h2>Hasil Konversi : $suhu &deg;R</h2>";
+            break;
         }
     }
   } else {
